@@ -11,7 +11,7 @@ int min(vector<int> vec)
 }
 int main()
 {
-    vector<int> height{30, 10, 60, 10, 60, 50};
+    vector<int> height{10 ,30 ,40 ,50 ,20};
     int k = 3;
     int idx = height.size() - 1;
     vector<int> dp(height.size(), -1);
