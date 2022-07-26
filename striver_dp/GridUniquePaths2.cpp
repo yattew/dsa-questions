@@ -5,6 +5,7 @@ using namespace std;
 int solve(vector<vector<int>> grid)
 {
     int rows = grid.size(), cols = grid[0].size();
+    // cout<<grid[0].size();
     vector<vector<int>> dp(
         rows,
         vector<int>(cols, 0));
