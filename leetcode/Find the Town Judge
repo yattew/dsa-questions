@@ -1,0 +1,34 @@
+class Solution {
+public:
+    int findJudge(int n, vector<vector<int>>& trust) {
+        if(n == 1 && trust.size()==0)
+            return 1;
+        unordered_map<int,int> trusted;
+        unordered_map<int,int> trusts;
+        for(auto x: trust){
+            trusted[x[1]]++;
+            trusts[x[0]]++;
+        }
+        for(auto x: trusted){
+            cout<<x.first<<" "<<x.second<<endl;
+        }
+        cout<<endl;
+        for(auto x: trusts){
+            cout<<x.first<<" "<<x.second<<endl;
+        }
+        cout<<endl;
+        int ans = -1;
+        for(int i = 1; i<=n; i++){
+            auto trusted_i = trusted.find(i);
+            auto trusts_i = trusts.find(i);
+            if(
+                trusted_i!=trusted.end() && //is trusted
+                trusts_i==trusts.end() && //trusts no one
+                trusted_i->second == n-1){//trusted by everyone but itself
+                    ans = i;
+                    break;
+                } 
+        }
+        return ans;
+    }
+};
